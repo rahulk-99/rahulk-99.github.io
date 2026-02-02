@@ -55,6 +55,10 @@
 
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
+    <div class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+      <i class="bi bi-moon"></i>
+    </div>
+
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
@@ -192,7 +196,7 @@
                 href="https://robotics.umd.edu/">University of Maryland</a>, College Park (graduating May 2026),
               specializing in building autonomous systems that integrate Robot Learning, Perception, Physical AI, and
               Motion Planning. Currently, as a Research Assistant at the GAMMA Lab under Prof. <a
-                href="https://robotics.umd.edu/">Dinesh Manocha</a>, I am
+                href="https://www.cs.umd.edu/people/dmanocha">Dinesh Manocha</a>, I am
               architecting an end-to-end autonomous navigation stack that integrates semantic segmentation and sensor
               fusion into high-fidelity 3D world models to drive geometry-aware VLA policies trained on internet-scale
               data for safe navigation.
@@ -574,6 +578,11 @@
         transition: all 0.3s ease;
       }
 
+      body.dark-mode .resume-item {
+        background: var(--surface-color);
+        box-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
+      }
+
       .experience-header {
         cursor: pointer;
         padding: 10px;
@@ -669,61 +678,98 @@
 
       <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <div class="isotope-layout" data-default-filter=".filter-robo" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
 
-            <li data-filter=".filter-robo">Robot Learning</li>
+            <li data-filter=".filter-robo" class="filter-active">Robot Learning</li>
             <li data-filter=".filter-perception">Computer Vision</li>
             <li data-filter=".filter-ml">Machine Learning</li>
             <li data-filter=".filter-plan">Planning & Controls</li>
-            <li data-filter="*" class="filter-active">All</li>
+            <!-- <li data-filter="*" class="filter-active">All</li> -->
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-perception filter-ml">
-              <a href="#"><img src="assets/img/masonry-portfolio/work_2.png" class="img-fluid" loading="lazy"
-                  alt=""></a>
-              <h5 style="text-align: center;"><strong>High-Performance Stereo Vision Pipeline with TensorRT
-                  Optimization</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Built an end-to-end stereo vision pipeline, integrating a Foundation Stereo Vision model to generate
-                  accurate point clouds for pose estimation, reducing reliance on costly 3D cameras.</li>
-                <li>Optimized a PyTorch model with TensorRT, reducing inference time by 90% (10s to 1s) for point cloud
-                  generation.</li>
-              </ul>
+            <div class="col-12 portfolio-item isotope-item filter-perception filter-ml">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="#"><img src="assets/img/masonry-portfolio/work_2.png"
+                      class="img-fluid rounded shadow-sm project-img" loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>High-Performance Stereo Vision Pipeline with TensorRT Optimization</strong>
+                  </h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Built an end-to-end stereo vision pipeline, integrating a Foundation Stereo Vision model to
+                      generate accurate point clouds for pose estimation, reducing reliance on costly 3D cameras.</li>
+                    <li>Optimized a PyTorch model with TensorRT, reducing inference time by 90% (10s to 1s) for point
+                      cloud generation.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">PyTorch</span>
+                    <span class="skill-badge">TensorRT</span>
+                    <span class="skill-badge">Stereo Vision</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-robo">
-              <a href="#"><img src="assets/img/masonry-portfolio/work_1.gif" class="img-fluid" loading="lazy"
-                  alt=""></a>
-              <h5 style="text-align: center;"><strong>End-to-End RL Framework for Industrial Robot Control with Sim2Real
-                  Transfer</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Engineered a custom end-to-end robot learning framework for a 6-DoF industrial robot, training a PPO
-                  RL policy in Isaac Sim that achieved a >90% success rate for the target-reaching task</li>
-                <li>Demonstrated successful Sim2Real transfer by deploying the validated policy onto the physical robot,
-                  bypassing the existing C++ planning stack ensuring hardware-safe execution</li>
-              </ul>
+            <div class="col-12 portfolio-item isotope-item filter-robo">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="#"><img src="assets/img/masonry-portfolio/work_1.gif"
+                      class="img-fluid rounded shadow-sm project-img" loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>End-to-End RL Framework for Industrial Robot Control with Sim2Real
+                      Transfer</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Engineered a custom end-to-end robot learning framework for a 6-DoF industrial robot, training a
+                      PPO RL policy in Isaac Sim that achieved a >90% success rate for the target-reaching task</li>
+                    <li>Demonstrated successful Sim2Real transfer by deploying the validated policy onto the physical
+                      robot, bypassing the existing C++ planning stack ensuring hardware-safe execution</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Isaac Sim</span>
+                    <span class="skill-badge">PPO</span>
+                    <span class="skill-badge">Sim2Real</span>
+                    <span class="skill-badge">Reinforcement Learning</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-robo filter-ml">
-              <a href="https://github.com/rahulk-99/LLM_Prompt_Robot_Walk.git"><img
-                  src="assets/img/masonry-portfolio/llm_robot_1.gif" class="img-fluid" loading="lazy" alt=""></a>
-              <h5 style="text-align: center;"><strong>LLM-Based Control for Autonomous Robot Navigation</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Implemented a robot walking controller <strong>powered by LLMs</strong> using <strong>Few-Shot
-                    In-Context Learning</strong>, without requiring fine-tuning (inspired by <a
-                    href="https://arxiv.org/abs/2309.09969">paper</a>).</li>
-                <li>Integrated <strong>LLaMA 4 Maverick-17B</strong> and <strong>Qwen2.5-32B</strong> to predict future
-                  actions, <strong>achieving 60% faster inference</strong> speed per action step with LLaMA compared to
-                  Qwen</li>
-                <!-- <li>Developing prompt caching and response reuse mechanism to reduce per-step inference latency in real-time control loops.</li> -->
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/LLM_Prompt_Robot_Walk.git" title="More Details"
-                  class="details-link"><i class="bi bi-link-45deg"></i></a>
+            <div class="col-12 portfolio-item isotope-item filter-robo filter-ml">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/LLM_Prompt_Robot_Walk.git"><img
+                      src="assets/img/masonry-portfolio/llm_robot_1.gif" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>LLM-Based Control for Autonomous Robot Navigation</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Implemented a robot walking controller <strong>powered by LLMs</strong> using <strong>Few-Shot
+                        In-Context Learning</strong>, without requiring fine-tuning (inspired by <a
+                        href="https://arxiv.org/abs/2309.09969">paper</a>).</li>
+                    <li>Integrated <strong>LLaMA 4 Maverick-17B</strong> and <strong>Qwen2.5-32B</strong> to predict
+                      future actions, <strong>achieving 60% faster inference</strong> speed per action step with LLaMA
+                      compared to Qwen</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">LLaMA</span>
+                    <span class="skill-badge">Qwen</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">LLM Agent</span>
+                    <span class="skill-badge">Robotics</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/LLM_Prompt_Robot_Walk.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
@@ -735,198 +781,312 @@
               </div>
             </div> -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-plan">
-              <a href="https://github.com/rahulk-99/path_planning_SLAM.git">
-                <img src="assets/img/masonry-portfolio/rah_path.gif" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>Path Planning: A-Star vs Dijkstra Algorithm</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Implements Dijkstra's and A* algorithms for robot pathfinding in a 2D environment, visualizing node
-                  exploration (green), clearance zones (yellow), obstacles (red), and the final path (blue).</li>
-                <li>A* reduces the number of nodes explored by approximately 75% compared to Dijkstra, using a
-                  heuristic-guided search to prioritize nodes closer to the goal.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/path_planning_SLAM.git" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-plan">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/path_planning_SLAM.git"><img
+                      src="assets/img/masonry-portfolio/rah_path.gif" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Path Planning: A-Star vs Dijkstra Algorithm</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Implements Dijkstra's and A* algorithms for robot pathfinding in a 2D environment, visualizing
+                      node exploration (green), clearance zones (yellow), obstacles (red), and the final path (blue).
+                    </li>
+                    <li>A* reduces the number of nodes explored by approximately 75% compared to Dijkstra, using a
+                      heuristic-guided search to prioritize nodes closer to the goal.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">C++</span>
+                    <span class="skill-badge">A*</span>
+                    <span class="skill-badge">Dijkstra</span>
+                    <span class="skill-badge">Path Planning</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/path_planning_SLAM.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-plan">
-              <a href="https://github.com/rahulk-99/A-Star-Planning-competition.git">
-                <img src="assets/img/masonry-portfolio/A_star.gif" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>Optimal Path Planning with A* for TurtleBot4 Navigation</strong>
-              </h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Implemented A* path planning algorithm for TurtleBot4 to achieve optimal path generation with
-                  obstacle avoidance in a competitive environment</li>
-                <li>Performed 2D path planning with obstacle transformation and clearance constraints, and deployed on
-                  TurtleBot4 for real-world autonomous navigation.</li>
-                <li>Compared A* and Dijkstra's algorithms, demonstrating that A* reduced the number of explored nodes by
-                  ~75% through heuristic-guided search toward the goal.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/A-Star-Planning-competition.git" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-plan">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/A-Star-Planning-competition.git"><img
+                      src="assets/img/masonry-portfolio/A_star.gif" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Optimal Path Planning with A* for TurtleBot4 Navigation</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Implemented A* path planning algorithm for TurtleBot4 to achieve optimal path generation with
+                      obstacle avoidance in a competitive environment</li>
+                    <li>Performed 2D path planning with obstacle transformation and clearance constraints, and deployed
+                      on TurtleBot4 for real-world autonomous navigation.</li>
+                    <li>Compared A* and Dijkstra's algorithms, demonstrating that A* reduced the number of explored
+                      nodes by ~75% through heuristic-guided search toward the goal.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">ROS2</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">A*</span>
+                    <span class="skill-badge">TurtleBot4</span>
+                    <span class="skill-badge">Navigation</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/A-Star-Planning-competition.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-6 col-md-8 portfolio-item isotope-item filter-robo">
-              <a href="https://github.com/rahulk-99/Vision_based_Deep_RL_Manipulator.git">
-                <img src="assets/img/masonry-portfolio/rah_control_proj1.png" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>Vision-based Deep RL Control for Robot Manipulator</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Implemented (inspired by <a
-                    href="https://www.researchgate.net/publication/283761733_Towards_Vision-Based_Deep_Reinforcement_Learning_for_Robotic_Motion_Control"
-                    target="_blank">paper</a>) a 2D image-based DQN to control a 3-link robotic arm in Pygame.</li>
-                <li>Designed an adaptive reward function based on Euclidean distance reduction, improving training
-                  efficiency by 30% compared to baseline methods.</li>
-                <li>Trained for 1.4 million episodes across five complex settings, achieving a 37% success rate in
-                  high-noise environments.</li>
-                <li>Extended the DQN framework for 3D robotic arm control in Gazebo using ROS2, enabling real-time
-                  deployment with a Baxter robot.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/Vision_based_Deep_RL_Manipulator.git" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-robo">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/Vision_based_Deep_RL_Manipulator.git"><img
+                      src="assets/img/masonry-portfolio/rah_control_proj1.png"
+                      class="img-fluid rounded shadow-sm project-img" loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Vision-based Deep RL Control for Robot Manipulator</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Implemented (inspired by <a
+                        href="https://www.researchgate.net/publication/283761733_Towards_Vision-Based_Deep_Reinforcement_Learning_for_Robotic_Motion_Control"
+                        target="_blank">paper</a>) a 2D image-based DQN to control a 3-link robotic arm in Pygame.</li>
+                    <li>Designed an adaptive reward function based on Euclidean distance reduction, improving training
+                      efficiency by 30% compared to baseline methods.</li>
+                    <li>Trained for 1.4 million episodes across five complex settings, achieving a 37% success rate in
+                      high-noise environments.</li>
+                    <li>Extended the DQN framework for 3D robotic arm control in Gazebo using ROS2, enabling real-time
+                      deployment with a Baxter robot.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">PyTorch</span>
+                    <span class="skill-badge">DQN</span>
+                    <span class="skill-badge">ROS2</span>
+                    <span class="skill-badge">Gazebo</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/Vision_based_Deep_RL_Manipulator.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-robo">
-              <a href="https://github.com/rahulk-99/Cross_Medium_Drone_Exploration.git"> <img
-                  src="assets/img/masonry-portfolio/rah_ship.png" class="img-fluid" loading="lazy" alt=""></a>
-              <h5 style="text-align: center;"><strong>Reinforcement Learning-Based Motion Planning for a
-                  Dual-Environment Drone</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Developing reinforcement learning-based motion planning for a dual environment drone with an
-                  integrated manipulator.</li>
-                <li>Authored a high-fidelity NVIDIA Isaac Sim simulation to model air-water dynamics for autonomous
-                  drone operation, achieving 90% real-to-sim accuracy.</li>
-                <li>Integrated the Pegasus Sim framework for drone dynamics and implemented Soft Actor-Critic (SAC)
-                  reinforcement learning for real-time decision-making.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/Cross_Medium_Drone_Exploration.git" title="More Details"
-                  class="details-link"><i class="bi bi-link-45deg"></i></a>
+            <div class="col-12 portfolio-item isotope-item filter-robo">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/Cross_Medium_Drone_Exploration.git"><img
+                      src="assets/img/masonry-portfolio/rah_ship.png" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Reinforcement Learning-Based Motion Planning for a Dual-Environment
+                      Drone</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Developing reinforcement learning-based motion planning for a dual environment drone with an
+                      integrated manipulator.</li>
+                    <li>Authored a high-fidelity NVIDIA Isaac Sim simulation to model air-water dynamics for autonomous
+                      drone operation, achieving 90% real-to-sim accuracy.</li>
+                    <li>Integrated the Pegasus Sim framework for drone dynamics and implemented Soft Actor-Critic (SAC)
+                      reinforcement learning for real-time decision-making.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Isaac Sim</span>
+                    <span class="skill-badge">SAC</span>
+                    <span class="skill-badge">Reinforcement Learning</span>
+                    <span class="skill-badge">Pegasus</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/Cross_Medium_Drone_Exploration.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-perception">
-              <img src="assets/img/masonry-portfolio/rah_bel.gif" class="img-fluid" loading="lazy" alt="">
-              <h5 style="text-align: center;"><strong>Li-Fi Enabled Underwater Object Detection for Low-Visibility
-                  Environments</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Led the development of Li-Fi communication enabled underwater object detection device for
-                  low-visibility environments</li>
-                <li>Engineered a data augmentation pipeline using a GAN to create a large-scale, paired underwater image
-                  dataset, overcoming data scarcity.</li>
-                <li>Benchmarked detection models (YOLOv8, RT-DETR) and implemented a consensus pipeline, improving final
-                  mAP by 22.8% and IOU by 19.4%</li>
-                <li>Successfully deployed and demonstrated underwater testing, achieving data transfer speed of 5 MBps
-                  using Li-Fi.</li>
-              </ul>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-perception">
-              <img src="assets/img/masonry-portfolio/tb4.gif" class="img-fluid" loading="lazy" alt="">
-              <h5 style="text-align: center;"><strong>Vision-Based Intelligence for TurtleBot4</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Calibrated the camera and implemented ArUco marker-based navigation on TurtleBot4 for precise
-                  heading in dynamic competition environments.</li>
-                <li>Developed projective geometry algorithms using Canny edge detection and RANSAC-filtered Hough
-                  Transform to compute real-time horizon lines and vanishing points for enhanced scene understanding.
-                </li>
-                <li>Engineered optical flow-based obstacle detection using Lucas-Kanade tracking of Shi-Tomasi features
-                  to filter out environment motion and isolate dynamic obstacles.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/Perception_Final_Project.git" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-perception">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="#"><img src="assets/img/masonry-portfolio/rah_bel.gif"
+                      class="img-fluid rounded shadow-sm project-img" loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Li-Fi Enabled Underwater Object Detection for Low-Visibility
+                      Environments</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Led the development of Li-Fi communication enabled underwater object detection device for
+                      low-visibility environments</li>
+                    <li>Engineered a data augmentation pipeline using a GAN to create a large-scale, paired underwater
+                      image dataset, overcoming data scarcity.</li>
+                    <li>Benchmarked detection models (YOLOv8, RT-DETR) and implemented a consensus pipeline, improving
+                      final mAP by 22.8% and IOU by 19.4%</li>
+                    <li>Successfully deployed and demonstrated underwater testing, achieving data transfer speed of 5
+                      MBps using Li-Fi.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">GANs</span>
+                    <span class="skill-badge">YOLOv8</span>
+                    <span class="skill-badge">Li-Fi</span>
+                    <span class="skill-badge">Computer Vision</span>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-plan">
-              <a href="https://github.com/rahulk-99/Advance_Controllers_MultiMass_System.git">
-                <img src="assets/img/masonry-portfolio/controls.png" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>Advance Controller Design for Nonlinear Multi-Mass System</strong>
-              </h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Devised an LQR controller for nonlinear multi-mass system in MATLAB, achieving stabilization under
-                  5000 N disturbance.</li>
-                <li>Integrated LQG controller with a Luenberger observer in Simulink, leveraging Kalman filtering for
-                  robust state estimation.</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/Advance_Controllers_MultiMass_System.git" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-perception">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="#"><img src="assets/img/masonry-portfolio/tb4.gif"
+                      class="img-fluid rounded shadow-sm project-img" loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Vision-Based Intelligence for TurtleBot4</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Calibrated the camera and implemented ArUco marker-based navigation on TurtleBot4 for precise
+                      heading in dynamic competition environments.</li>
+                    <li>Developed projective geometry algorithms using Canny edge detection and RANSAC-filtered Hough
+                      Transform to compute real-time horizon lines and vanishing points for enhanced scene
+                      understanding.</li>
+                    <li>Engineered optical flow-based obstacle detection using Lucas-Kanade tracking of Shi-Tomasi
+                      features to filter out environment motion and isolate dynamic obstacles.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">OpenCV</span>
+                    <span class="skill-badge">ArUco</span>
+                    <span class="skill-badge">Optical Flow</span>
+                    <span class="skill-badge">Python</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/Perception_Final_Project.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-plan">
-              <a href="https://github.com/rahulk-99/Quadruped_SpotMicro_Simulation.git">
-                <img src="assets/img/masonry-portfolio/rah_quad.gif" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>12-DOF Quadruped Gait control and Locomotion</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Simulated a 4-legged, 12-DOF quadruped robot inspired by SpotMini, integrating custom URDF and
-                  realistic physics in Gazebo for stable terrain maneuvering.</li>
-                <li>Developed inverse kinematics control algorithms using ROSPy, enabling precise and stable limb motion
-                </li>
-                <li>Established a trotting gait pattern via open-loop control, achieving stable & coordinated locomotion
-                  at ~ 0.3 m/s</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/Quadruped_SpotMicro_Simulation.git" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-plan">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/Advance_Controllers_MultiMass_System.git"><img
+                      src="assets/img/masonry-portfolio/controls.png" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Advance Controller Design for Nonlinear Multi-Mass System</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Devised an LQR controller for nonlinear multi-mass system in MATLAB, achieving stabilization
+                      under 5000 N disturbance.</li>
+                    <li>Integrated LQG controller with a Luenberger observer in Simulink, leveraging Kalman filtering
+                      for robust state estimation.</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">MATLAB</span>
+                    <span class="skill-badge">Simulink</span>
+                    <span class="skill-badge">LQR</span>
+                    <span class="skill-badge">LQG</span>
+                    <span class="skill-badge">Control Theory</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/Advance_Controllers_MultiMass_System.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-              <a href="https://link.springer.com/article/10.1007/s12572-023-00357-0">
-                <img src="assets/img/masonry-portfolio/rah_journal.png" class="img-fluid" loading="lazy" alt="">
-              </a>
-              <h5 style="text-align: center;"><strong>ML-Based Optimization of Fringing Field Effect in MEMS
-                  Actuators</strong></h5>
-              <ul style="text-align: left; font-size: 14px; list-style-type: disc; padding-left: 20px; margin: 0;">
-                <li>Engineered an ML workflow to create a novel predictive model for MEMS actuators , resulting in a
-                  first author publication</li>
-                <li>Generated a comprehensive synthetic dataset for MEMS actuator from numerous physics-based FEM
-                  simulations using LUA Scripting.</li>
-                <li>Developed a weighted-average ensemble of regressors (Random Forest, SVM, XGBoost) to derive the
-                  final model from the simulated data to derive the final predictive model.</li>
-                <li>Benchmarked the model against established methods, reducing prediction error ~40% down to less than
-                  7%</li>
-              </ul>
-              <div class="portfolio-info">
-                <a href="https://link.springer.com/article/10.1007/s12572-023-00357-0" title="More Details"
-                  class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="col-12 portfolio-item isotope-item filter-plan">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/Quadruped_SpotMicro_Simulation.git"><img
+                      src="assets/img/masonry-portfolio/rah_quad.gif" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>12-DOF Quadruped Gait control and Locomotion</strong></h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Simulated a 4-legged, 12-DOF quadruped robot inspired by SpotMini, integrating custom URDF and
+                      realistic physics in Gazebo for stable terrain maneuvering.</li>
+                    <li>Developed inverse kinematics control algorithms using ROSPy, enabling precise and stable limb
+                      motion</li>
+                    <li>Established a trotting gait pattern via open-loop control, achieving stable & coordinated
+                      locomotion at ~ 0.3 m/s</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">ROSPy</span>
+                    <span class="skill-badge">Gazebo</span>
+                    <span class="skill-badge">PyBullet</span>
+                    <span class="skill-badge">Inverse Kinematics</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/Quadruped_SpotMicro_Simulation.git" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-12 portfolio-item isotope-item filter-ml">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://link.springer.com/article/10.1007/s12572-023-00357-0"><img
+                      src="assets/img/masonry-portfolio/rah_journal.png" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>ML-Based Optimization of Fringing Field Effect in MEMS Actuators</strong>
+                  </h5>
+                  <ul class="text-start ps-3 fs-6">
+                    <li>Engineered an ML workflow to create a novel predictive model for MEMS actuators , resulting in a
+                      first author publication</li>
+                    <li>Generated a comprehensive synthetic dataset for MEMS actuator from numerous physics-based FEM
+                      simulations using LUA Scripting.</li>
+                    <li>Developed a weighted-average ensemble of regressors (Random Forest, SVM, XGBoost) to derive the
+                      final model from the simulated data to derive the final predictive model.</li>
+                    <li>Benchmarked the model against established methods, reducing prediction error ~40% down to less
+                      than 7%</li>
+                  </ul>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">Scikit-Learn</span>
+                    <span class="skill-badge">LUA</span>
+                    <span class="skill-badge">MEMS</span>
+                    <span class="skill-badge">FEM</span>
+                  </div>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://link.springer.com/article/10.1007/s12572-023-00357-0" title="More Details"
+                      class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                </div>
               </div>
             </div><!-- End Portfolio Item -->
 
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-perception">
-              <a href="https://github.com/rahulk-99/my_Computer_Vision_library/tree/object_tracking"><img
-                  src="assets/img/masonry-portfolio/rah_track.gif" class="img-fluid" loading="lazy" alt=""></a>
-              <h5 style="text-align: center;"><strong>Object Tracking and Motion Analysis Using OpenCV</strong></h5>
-              <div class="portfolio-info">
-                <a href="https://github.com/rahulk-99/my_Computer_Vision_library/tree/object_tracking"
-                  title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+            <div class="col-12 portfolio-item isotope-item filter-perception">
+              <div class="row align-items-center">
+                <div class="col-md-5">
+                  <a href="https://github.com/rahulk-99/my_Computer_Vision_library/tree/object_tracking"><img
+                      src="assets/img/masonry-portfolio/rah_track.gif" class="img-fluid rounded shadow-sm project-img"
+                      loading="lazy" alt=""></a>
+                </div>
+                <div class="col-md-7">
+                  <h5 class="mb-3"><strong>Object Tracking and Motion Analysis Using OpenCV</strong></h5>
+                  <div class="portfolio-info mt-3">
+                    <a href="https://github.com/rahulk-99/my_Computer_Vision_library/tree/object_tracking"
+                      title="More Details" class="details-link"><i class="bi bi-link-45deg fs-4"></i></a>
+                  </div>
+                  <div class="resume-skills pb-2">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">OpenCV</span>
+                    <span class="skill-badge">Computer Vision</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1089,6 +1249,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
+  <script src="assets/js/dark-mode.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

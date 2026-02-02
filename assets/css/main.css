@@ -883,14 +883,14 @@ section,
 }
 
 .skill-badge {
-  font-size: 0.8rem;
-  padding: 4px 12px;
+  font-size: 0.75rem;
+  padding: 3px 10px;
   border-radius: 20px;
   background-color: #e0f7fa;
   /* Light Cyan */
-  color: #c2185b;
-  /* Deep Reddish Magenta */
-  font-weight: 600;
+  color: #006064;
+  /* Deep Teal */
+  font-weight: 500;
   border: 1px solid #b2ebf2;
   display: inline-block;
   margin-right: 5px;
@@ -899,21 +899,18 @@ section,
 }
 
 .skill-badge:hover {
-  background-color: #00e5ff;
-  /* Bright Neon Cyan */
-  color: #880e4f;
-  /* Darker Magenta for contrast */
+  background-color: #00bcd4;
+  /* Vibrant Cyan */
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-  /* Cyan Glow */
-  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+  border-color: #00bcd4;
 }
 
 body.dark-mode .skill-badge {
   background-color: rgba(0, 229, 255, 0.1);
-  /* Faint Cyan bg */
-  color: #ff4081;
-  /* Neon Reddish Magenta text */
+  color: #00e5ff;
+  /* Neon Cyan */
   border-color: rgba(0, 229, 255, 0.3);
 }
 
@@ -1788,4 +1785,18 @@ body.dark-mode .hero .timeline-card {
   .hero .timeline-container {
     max-height: none;
   }
+}
+
+/* --- Date Visibility Fix --- */
+.experience-date {
+  color: #666666;
+  /* Readable gray for Light Mode */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+body.dark-mode .experience-date {
+  color: #ffffff !important;
+  /* Bright White for Dark Mode */
+  opacity: 1;
 }

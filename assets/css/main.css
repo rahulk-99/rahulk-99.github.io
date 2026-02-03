@@ -663,6 +663,39 @@ body.dark-mode .goto-projects:hover {
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.6) !important;
 }
 
+/* Resume Logo Styling */
+.resume-logo-wrapper {
+  flex-shrink: 0;
+}
+
+.resume-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.resume-logo:hover {
+  transform: scale(1.05);
+}
+
+body.dark-mode .resume-logo {
+  background-color: #fff;
+  /* Keep white background for corporate logos */
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 576px) {
+  .resume-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -1677,9 +1710,7 @@ body.dark-mode .project-img {
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+
 
 
 

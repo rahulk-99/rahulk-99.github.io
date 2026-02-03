@@ -647,6 +647,22 @@ section,
   }
 }
 
+/* Dark Mode for Go To Projects */
+body.dark-mode .goto-projects {
+  color: #00ff88 !important;
+  /* Neon Green */
+  background: rgba(0, 255, 136, 0.15) !important;
+  border: 1px solid rgba(0, 255, 136, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2) !important;
+  font-weight: 600 !important;
+}
+
+body.dark-mode .goto-projects:hover {
+  background: #00ff88 !important;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.6) !important;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -1800,6 +1816,7 @@ body.dark-mode .experience-date {
   /* Bright White for Dark Mode */
   opacity: 1;
 }
+
 /* Highlight Project Link (Button-like style) */
 .highlight-link {
   display: inline-flex;

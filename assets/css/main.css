@@ -1800,3 +1800,27 @@ body.dark-mode .experience-date {
   /* Bright White for Dark Mode */
   opacity: 1;
 }
+/* Highlight Project Link (Button-like style) */
+.highlight-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(5, 99, 187, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.highlight-link:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.highlight-link i {
+  margin-left: 5px;
+}
